@@ -15,7 +15,7 @@ print(df.info())
 print(df.isnull().sum())
 
 
-df = df.drop(columns=["name", "phone"])
+df = df.drop(columns=["customer_id","name", "phone"])
 
 df["churn"] = df["churn"].map({"No": 0, "Yes": 1})
 

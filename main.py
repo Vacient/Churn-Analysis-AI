@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 import joblib
+import numpy as np
 
 app = FastAPI()
 
@@ -20,9 +21,15 @@ def predict(
     contract_months: int,
 ):
 
-    data = [
-        [monthly_bill, complaints, downtime_hours, payment_delay_days, contract_months]
-    ]
+    data = np.array([
+        [
+            monthly_bill,
+            complaints,
+            downtime_hours,
+            payment_delay_days,
+            contract_months,
+        ]
+    ])
 
     prediction = model.predict(data)
 
