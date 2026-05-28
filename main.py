@@ -3,11 +3,15 @@ from typing import List, Optional
 from fastapi import FastAPI
 import joblib
 import pandas as pd
-from dotenv import load_dotenv
 from pydantic import BaseModel, Field
 from services.sentiment_service import SentimentResult, get_sentiment_result
 
-load_dotenv()
+try:
+    from dotenv import load_dotenv
+
+    load_dotenv()
+except Exception:
+    pass
 
 app = FastAPI()
 
