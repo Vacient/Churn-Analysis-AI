@@ -8,7 +8,7 @@ fake = Faker()
 
 data = []
 
-for i in range(1000):
+for i in range(10000):
     tickets = random.randint(0, 10)
     # complaints = random.randint(0, 10)
     downtime = round(random.uniform(0.0, 24.0), 2)
