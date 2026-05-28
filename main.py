@@ -21,7 +21,7 @@ class CustomerFeatures(BaseModel):
     downtime_hours: float = Field(..., ge=0)
     resolution_time: int = Field(..., ge=0)
     duration_time: int = Field(..., ge=0)
-    description: str = Field(..., min_length=1)
+    description: str = Field(..., min_length=0)
     # payment_delay_days: float = Field(..., ge=0)
     # contract_months: float = Field(..., ge=0)
 
