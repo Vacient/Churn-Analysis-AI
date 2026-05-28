@@ -12,11 +12,14 @@ model = joblib.load("churn_model.pkl")
 
 class CustomerFeatures(BaseModel):
     customer_id: Optional[str] = None
-    monthly_bill: float = Field(..., ge=0)
-    complaints: float = Field(..., ge=0)
+    # monthly_bill: float = Field(..., ge=0)
+    complaints: int = Field(..., ge=0)
     downtime_hours: float = Field(..., ge=0)
-    payment_delay_days: float = Field(..., ge=0)
-    contract_months: float = Field(..., ge=0)
+    resolution_time: int = Field(..., ge=0)
+    duration_time: int = Field(..., ge=0)
+    sentiment: int = Field(..., ge=0)
+    # payment_delay_days: float = Field(..., ge=0)
+    # contract_months: float = Field(..., ge=0)
 
 
 class PredictionResult(BaseModel):
@@ -34,11 +37,12 @@ class BatchPredictResponse(BaseModel):
 
 
 FEATURE_ORDER = [
-    "monthly_bill",
+    # "monthly_bill",
     "complaints",
     "downtime_hours",
-    "payment_delay_days",
-    "contract_months",
+    "resolution_time",
+    "duration_time",
+    "sentiment"
 ]
 
 
